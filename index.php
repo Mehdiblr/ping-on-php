@@ -6,10 +6,10 @@ $shell_runner = shell_exec('ping 8.8.8.8');
 $pattern = '/([a-z])+ = \d+/i';
 
 //get matched data of preg_match_all regular expression php function
-$res = preg_match_all( $pattern, $shell_runner,$matched);
+$result = preg_match_all( $pattern, $shell_runner,$matched);
 
 // if condition to check its value
-if($res){
+if($result){
     $result_array = arrTopretty($matched);
     echo "your connection status is </br>";
     echo " your Sent packet: <strong>" . $result_array[0] ."</strong></br>";
@@ -21,9 +21,9 @@ if($res){
 
 // define a foreach loop to loop in matched values
 function arrTopretty(array $array) : array{
-    $res = array();
+    $result = array();
     foreach($array[0] as $val){
-        $res[] .=  $val;
+        $result[] .=  $val;
     }
-    return $res;
+    return $result;
 }
